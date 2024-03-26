@@ -1,32 +1,11 @@
-# Prerequisites
-*.d
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
+.vs/
+*.tlog
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
+*.log
+*.pdb
+*.idb
+*.ilk
 *.exe
-*.out
-*.app
+*.recipe
+*.*.recipe
