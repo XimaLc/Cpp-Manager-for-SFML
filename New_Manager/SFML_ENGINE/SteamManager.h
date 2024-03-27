@@ -1,12 +1,12 @@
 #pragma once
 #include "Tools.h"
 
-class SteamManager
+class SFMLENGINE_API SteamManager
 {
 private:
-	SteamManager();
 
 public:
+	SteamManager();
 
 };
 

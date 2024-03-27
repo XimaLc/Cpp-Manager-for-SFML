@@ -28,6 +28,7 @@
 #include "AudioManager.h"
 #include "Sprite.h"
 #include "MovieManager.h"
+#include "SteamManager.h"
 
 #define GET_MANAGER RessourcesManager::getInstance()
 
@@ -41,6 +42,7 @@ class SFMLENGINE_API RessourcesManager
 	FontManager m_font;
 	TexturesManager m_textures;
 	MovieManager m_movie;
+	SteamManager m_steam;
 
 	Animation m_loadingScreen;
 	bool m_isReady;
@@ -102,6 +104,13 @@ public:
 	const sf::Texture& getTexture(std::string name);
 
 #pragma endregion
+
+#pragma region STEAM
+
+	SteamManager& getSteam();
+
+#pragma endregion
+
 
 
 #pragma region FONT

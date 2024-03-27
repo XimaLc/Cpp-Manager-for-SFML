@@ -93,6 +93,11 @@ const sf::Texture& RessourcesManager::getTexture(std::string name)
 	return m_textures.getTexture(name);
 }
 
+SteamManager& RessourcesManager::getSteam()
+{
+	return m_steam;
+}
+
 std::list<std::pair<unsigned, sf::Sound>>& RessourcesManager::getSound(std::string name)
 {
 	return m_audio.getSoundPlayer(name);

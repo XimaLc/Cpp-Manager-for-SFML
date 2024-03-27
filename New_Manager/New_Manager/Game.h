@@ -1,12 +1,14 @@
 
 #pragma once
 #include "State.h"
+#include "SFML_ENGINE/SteamManager.h"
 
 
 class Game
 {
 	WindowManager m_windowManager;
 	StateStack m_state;
+
     SteamManager steaminit;
 
     void update();

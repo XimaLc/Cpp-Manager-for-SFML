@@ -1,6 +1,5 @@
 #include "Game.h"
 #include "SFML_ENGINE/RessourcesManager.h"
-#include "SFML_ENGINE/SteamManager.h"
 
 Game::Game() : m_windowManager()
 {
@@ -37,7 +36,6 @@ void Game::render()
 
 void Game::runGame()
 {
-    steaminit;
 
     GET_MANAGER->getLoadingScreen() = Animation(GET_MANAGER->getTexture("loading"), sf::IntRect(0, 0, 128, 128), 0.1f, 8);
     m_state.push(std::make_unique<Test>(m_windowManager, &m_state));
