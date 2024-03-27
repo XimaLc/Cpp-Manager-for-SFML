@@ -7,6 +7,7 @@ private:
 
 public:
 	SteamManager();
-
+	void update();
+	~SteamManager();
 };
 

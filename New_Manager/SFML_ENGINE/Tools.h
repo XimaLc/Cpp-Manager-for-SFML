@@ -42,6 +42,7 @@
 #include <stack>
 #include <unordered_map>
 #include "Steam/steam_api.h"
+#include "Steam/isteamdualsense.h"
 
 #ifdef SFMLENGINE_EXPORTS
 #define SFMLENGINE_API __declspec(dllexport)
