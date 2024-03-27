@@ -1,26 +1,26 @@
 /*
-    Based on Coffee Engine
+	Based on Coffee Engine
 
-    Author: GRALLAN Yann
+	Author: GRALLAN Yann
 
-    Description: SFML-Engine
+	Description: SFML-Engine
 
-    Date: 2024/01/31
+	Date: 2024/01/31
 
-    MIT License
+	MIT License
 
-    Copyright (c) 2024 GRALLAN Yann
+	Copyright (c) 2024 GRALLAN Yann
 
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+	Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+	The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 #pragma once
 #include "FontManager.h"
@@ -106,12 +106,12 @@ public:
 
 #pragma region FONT
 
-////////////////////////////////////////////////////////////
-/// \brief return a ref of the font associate to the name
-///
-/// \param name name of the font
-/// 
-////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////
+	/// \brief return a ref of the font associate to the name
+	///
+	/// \param name name of the font
+	/// 
+	////////////////////////////////////////////////////////////
 	const sf::Font& getFont(std::string name);
 
 #pragma endregion
@@ -127,7 +127,7 @@ public:
 	/// \param name name of the sound
 	/// 
 	////////////////////////////////////////////////////////////
-	std::list<sf::Sound>& getSound(std::string name);
+	std::list<std::pair<unsigned, sf::Sound>>& getSound(std::string name);
 
 	////////////////////////////////////////////////////////////
 	/// \brief return a ref of the music associate to the name
@@ -138,14 +138,42 @@ public:
 	sf::Music& getMusic(std::string name);
 
 	////////////////////////////////////////////////////////////
-	/// \brief play the sound associates to the name. Restart the sound from the beginning if he is already playing
+	/// \brief play the sound associates to the name.
 	///
-	/// \param name name of the sound/music
+	/// \param name : Name of the sound/music
+	/// \param
+	/// \param id : With the id you can create multiple group of sound of the same sound.
+	/// \param So if i have 2 open_door sound but with a different id they wont be count as the same sound.
+	/// \param
+	/// \param startNewSound : This parameter let you start the same sound multiple time at the same time.
+	/// \param So you can combine the id with this and have forth same sound 2 of them have the same id.
+	/// \param So they will be count in the same group and play at the same time.
+	/// \param
+	/// \param waitToFinish : This parameter will just force the sound to wait for the same sound witht the same id
+	/// \param to finish. And them it will play again.
+	/// \param Important to know that if startNewSound is true there is no point to use waitToFinish.
+	/// \param But you can always use a different id to play the same sound but he will be block by waitToFinish.
+	/// \param
+	/// \param attenuation : The attenuation is how fast the sound volume 
+	/// \param will go down or go up with the distance of the listener position.
+	/// \param
+	/// \param minDistance : The minDistance is how far we can hear the sound from the listener position.
 	///
 	////////////////////////////////////////////////////////////
-	void playSound(std::string name, bool startNewSound = false);
+	void playSound(std::string name, unsigned id, bool startNewSound = false, bool waitToFinish = false, float attenuation = 0.f, float minDistance = 0.f);
 
-	
+	////////////////////////////////////////////////////////////
+	/// \brief Set the sound to a position.
+	///
+	/// \param name : Name of the sound/music.
+	/// \param
+	/// \param id : Id of the sound.
+	/// \param
+	/// \param position : The position where the sound is going to be set.
+	/// 
+	////////////////////////////////////////////////////////////
+	void updateSoundPosition(std::string name, unsigned id, sf::Vector3f position);
+
 	////////////////////////////////////////////////////////////
 	/// \brief play the music associates to the name. This function check is the music is already playing to not play it twice.
 	///

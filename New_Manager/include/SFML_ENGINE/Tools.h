@@ -41,6 +41,7 @@
 #include <algorithm>
 #include <stack>
 #include <unordered_map>
+#include "Steam/steam_api.h"
 
 #ifdef SFMLENGINE_EXPORTS
 #define SFMLENGINE_API __declspec(dllexport)

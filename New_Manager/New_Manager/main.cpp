@@ -1,13 +1,11 @@
 #include "SFML_ENGINE/RessourcesManager.h"
 #include "Game.h"
-#include "Steam/isteaminput.h"
-#include "Steam/steam_api.h"
 
 int main()
 {
 	float timer = 0;
 	
-		while (1)
+		/*while (1)
 		{
 			Tools::restartClock();
 			timer += Tools::getDeltaTime();
@@ -21,7 +19,7 @@ int main()
 				GET_MANAGER->playSound("MusicPlaceholder");
 				timer = 0.f;
 			}
-		}
+		}*/
 	
 
 

@@ -83,6 +83,10 @@ public:
 	////////////////////////////////////////////////////////////
 	int getFrameX() const;
 
+	float getAnimTime() const;
+
+	void setAnimTime(float _animTime);
+
 	void setHitBox(sf::FloatRect hitbox);
 
 	sf::FloatRect getHitBox();
