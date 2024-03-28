@@ -98,11 +98,6 @@ SteamManager& RessourcesManager::getSteam()
 	return m_steam;
 }
 
-ManetteHandle& RessourcesManager::getManette()
-{
-	return m_manette;
-}
-
 std::list<std::pair<unsigned, sf::Sound>>& RessourcesManager::getSound(std::string name)
 {
 	return m_audio.getSoundPlayer(name);

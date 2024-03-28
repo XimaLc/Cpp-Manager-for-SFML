@@ -23,7 +23,6 @@ void Game::update()
 	if (!m_state.empty() and GET_MANAGER->IsReady())
 		m_state.top().get()->update();
 
-    GET_MANAGER->getManette();
 }
 
 void Game::render()

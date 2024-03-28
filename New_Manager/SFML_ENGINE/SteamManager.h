@@ -1,17 +1,6 @@
 #pragma once
 #include "Tools.h"
 
-class SFMLENGINE_API SteamManager
-{
-private:
-
-public:
-	SteamManager();
-	void update();
-	~SteamManager();
-};
-
-
 class SFMLENGINE_API ManetteHandle
 {
 private:
@@ -28,16 +17,29 @@ private:
 
 public:
 	ManetteHandle();
-	ManetteHandle(std::string _bind_group_name);
 	~ManetteHandle();
+
+	void init(std::string _bind_group_name);
+	void update();
 
 	void create_analog_action(std::string _action);
 	void create_button_action(std::string _action);
-
-	void update();
 
 	inline int& getNbController() { return m_nb_manette; }
 	inline InputHandle_t* getHandleController() { return m_manetteHandles; }
 	InputAnalogActionData_t& get_analog_action(std::string _action) { return std::get<0>(m_analog_actions[_action]); }
 	InputDigitalActionData_t& get_button_action(std::string _action) { return m_buttons_actions[_action]; }
+};
+
+class SFMLENGINE_API SteamManager
+{
+private:
+	ManetteHandle m_manetteH;
+
+public:
+	SteamManager();
+	void update();
+	~SteamManager();
+	
+	ManetteHandle& getManette();
 };

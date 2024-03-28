@@ -23,6 +23,23 @@ void Test::update()
         GET_MANAGER->loadScene("Test");
         pushState(1);
     }
+	
+	if (GET_MANAGER->getSteam().getManette().get_analog_action("Move").y > 0.3f)
+	{
+		setVelocity({ getVelocity().x, -(_velocity * joystickVector.y) * 2.f });
+	}
+	else if (GET_MANAGER->getSteam().getManette().get_analog_action("Move").y < -0.3f)
+	{
+		setVelocity({ getVelocity().x, -(_velocity * joystickVector.y) * 2.f });
+	}
+	else if (GET_MANAGER->getSteam().getManette().get_analog_action("Move").x < -0.3f)
+	{
+		setVelocity({ (_velocity * joystickVector.x) * 2.5f, getVelocity().y });
+	}
+	else if (GET_MANAGER->getSteam().getManette().get_analog_action("Move").x > 0.3f)
+	{
+		setVelocity({ (_velocity * joystickVector.x) * 2.5f, getVelocity().y });
+	}
 }
 
 void Test::render()
