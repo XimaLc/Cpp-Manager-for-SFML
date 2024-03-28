@@ -12,7 +12,7 @@ public:
 };
 
 
-class ManetteHandle
+class SFMLENGINE_API ManetteHandle
 {
 private:
 	InputHandle_t m_manetteHandles[STEAM_INPUT_MAX_COUNT];

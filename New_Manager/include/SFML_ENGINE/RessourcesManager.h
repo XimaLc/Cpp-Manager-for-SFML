@@ -43,6 +43,7 @@ class SFMLENGINE_API RessourcesManager
 	TexturesManager m_textures;
 	MovieManager m_movie;
 	SteamManager m_steam;
+	ManetteHandle m_manette;
 
 	Animation m_loadingScreen;
 	bool m_isReady;
@@ -108,6 +109,7 @@ public:
 #pragma region STEAM
 
 	SteamManager& getSteam();
+	ManetteHandle& getManette();
 
 #pragma endregion
 
