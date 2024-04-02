@@ -1,5 +1,5 @@
 #pragma once
-#include "Tools.h"
+#include "StatsAndAchievements.h"
 
 class SFMLENGINE_API ManetteHandle
 {
@@ -37,11 +37,12 @@ class SFMLENGINE_API SteamManager
 {
 private:
 	ManetteHandle m_manetteH;
-
+	CSteamStatsAndAchievements m_achievements;
 public:
 	SteamManager();
 	void update();
 	~SteamManager();
 	
 	ManetteHandle& getManette();
+	CSteamStatsAndAchievements& getAchievements();
 };
