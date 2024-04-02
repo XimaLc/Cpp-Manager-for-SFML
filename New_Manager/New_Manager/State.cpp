@@ -13,6 +13,11 @@ void State::update()
 Test::Test(WindowManager& _window, StateStack* stackState) : State(_window, stackState)
 {
     m_animation = Animation(GET_MANAGER->getTexture("porte_intro_1224x855"),sf::IntRect(0,0,1224,855),0.5,16);
+
+	player.setSize(sf::Vector2f(50,50));
+	player.setPosition(sf::Vector2f(100, 100));
+	player.setFillColor(sf::Color(255, 0, 0, 255));
+	posPlayer = player.getPosition();
 }
 
 void Test::update()
@@ -23,28 +28,33 @@ void Test::update()
         GET_MANAGER->loadScene("Test");
         pushState(1);
     }
-	
+
+	GET_MANAGER->getSteam().getManette().update();
+
 	if (GET_MANAGER->getSteam().getManette().get_analog_action("Move").y > 0.3f)
 	{
-		setVelocity({ getVelocity().x, -(_velocity * joystickVector.y) * 2.f });
+		posPlayer.y -= 0.2;
 	}
 	else if (GET_MANAGER->getSteam().getManette().get_analog_action("Move").y < -0.3f)
 	{
-		setVelocity({ getVelocity().x, -(_velocity * joystickVector.y) * 2.f });
+		posPlayer.y += 0.2;
 	}
 	else if (GET_MANAGER->getSteam().getManette().get_analog_action("Move").x < -0.3f)
 	{
-		setVelocity({ (_velocity * joystickVector.x) * 2.5f, getVelocity().y });
+		posPlayer.x -= 0.2;
 	}
 	else if (GET_MANAGER->getSteam().getManette().get_analog_action("Move").x > 0.3f)
 	{
-		setVelocity({ (_velocity * joystickVector.x) * 2.5f, getVelocity().y });
+		posPlayer.x += 0.2;
 	}
+
+	player.setPosition(posPlayer);
 }
 
 void Test::render()
 {
     m_animation.Animate(m_windowManager.getWindow(), 6);
+	m_windowManager.draw(player);
 }
 
 void Test::pushState(char data)

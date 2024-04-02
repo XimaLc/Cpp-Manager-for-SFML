@@ -50,5 +50,8 @@ private:
     void virtual pushState(char data);
 public:
 	Test(WindowManager& _window, StateStack* stackState);
+
+    sf::RectangleShape player;
+    sf::Vector2f posPlayer;
 };
 

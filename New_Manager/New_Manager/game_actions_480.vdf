@@ -2,32 +2,37 @@
 {
 	"actions"
 	{
-		"InGameControls"
+		"GameControls"	
 		{
-			"title"					"#Set_Ingame"
+			"title"					"#Set_game"
 			"StickPadGyro"
 			{
 				"Move"
 				{
-					"title"			"#Action_Move"
-					"input_mode"	"joystick_move"
+					"title"			"#Game_MOVE"
+					"input_mode"		"joystick_move"
 				}
 				"Camera"
 				{
-					"title"			"#Action_Camera"
-					"input_mode"	"absolute_mouse"
+					"title"			"#Game_CAMERA"
+					"input_mode"		"absolute_mouse"	
 				}
 			}
 			"AnalogTrigger"
 			{
-				"Throttle"			"#Action_Throttle"
+				"RT"				"#Game_RT"
 			}
 			"Button"
 			{
-				"fire"          "#Action_Fire"
-				"Jump"          "#Action_Jump"
-				"pause_menu"    "#Action_Menu"
-				"A"             "#Action_Fire"
+				"A"				"#Game_A"
+				"B"				"#Game_B"
+				"X"				"#Game_X"
+				"Y"				"#Game_Y"
+				"RB"				"#Game_RB"
+				"LB"				"#Game_LB"
+				"LT"				"#Game_LT"
+				"START"				"#Game_START"
+				"SHARE"				"#Game_SHARE"
 			}
 		}
 		"MenuControls"
@@ -35,19 +40,32 @@
 			"title"		"#Set_Menu"
 			"StickPadGyro"
 			{
+				"Move"
+				{
+					"title"			"#Menu_MOVE"
+					"input_mode"		"joystick_move"
+				}
+				"Camera"
+				{
+					"title"			"#Menu_CAMERA"
+					"input_mode"		"absolute_mouse"	
+				}
 			}
 			"AnalogTrigger"
 			{
+				"RT"				"#Menu_RT"
 			}
 			"Button"
 			{
-				"menu_up"		"#Menu_Up"
-				"menu_down"		"#Menu_Down"
-				"menu_left"		"#Menu_Left"
-				"menu_right"	"#Menu_Right"
-				"menu_select"	"#Menu_Select"
-				"menu_cancel"	"#Menu_Cancel"
-				"pause_menu"	"#Action_ReturnToGame"
+				"A"				"#Menu_A"
+				"B"				"#Menu_B"
+				"X"				"#Menu_X"
+				"Y"				"#Menu_Y"
+				"RB"				"#Menu_RB"
+				"LB"				"#Menu_LB"
+				"LT"				"#Menu_LT"
+				"START"				"#Menu_START"
+				"SHARE"				"#Menu_SHARE"
 			}
 		}
 	}
@@ -55,21 +73,36 @@
 	{
 		"english"
 		{
-			"Set_Ingame"			"In-Game Controls"
-			"Set_Menu"				"Menu Controls"
-			"Action_Move"			"Movement"
-			"Action_Camera"			"Camera"
-			"Action_Throttle"		"Throttle"
-			"Action_Fire"			"Fire Weapon"
-			"Action_Jump"			"Jump"
-			"Action_Menu"			"Pause Menu"
-			"Action_ReturnToGame"	"Return To Game"
-			"Menu_Up"				"Up"
-			"Menu_Down"				"Down"
-			"Menu_Left"				"Left"
-			"Menu_Right"			"Right"
-			"Menu_Select"			"Select"
-			"Menu_Cancel"			"Cancel"
+			"Set_GameControls"		"Game Controls"
+			"Set_MenuControls"		"Menu Controls"
+
+			"Game_A"			"A"
+			"Game_B"			"B"
+			"Game_X"			"X"
+			"Game_Y"			"Y"	
+			"Game_RB"			"RB"	
+			"Game_RT"			"RT"
+			"Game_LB"			"LB"	
+			"Game_LT"			"LT"	
+			"Game_START"			"START"
+			"Game_SHARE"			"SHARE"
+			"Game_MOVE"			"MOVE"
+			"Game_CAMERA"			"CAMERA"
+
+			"Menu_A"			"A"
+			"Menu_B"			"B"
+			"Menu_X"			"X"
+			"Menu_Y"			"Y"	
+			"Menu_RB"			"RB"	
+			"Menu_RT"			"RT"
+			"Menu_LB"			"LB"	
+			"Menu_LT"			"LT"	
+			"Menu_START"			"START"
+			"Menu_SHARE"			"SHARE"
+			"Menu_MOVE"			"MOVE"
+			"Menu_CAMERA"			"CAMERA"
+
 		}
+		
 	}
 }

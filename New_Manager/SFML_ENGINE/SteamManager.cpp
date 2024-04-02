@@ -14,7 +14,6 @@ SteamManager::SteamManager()
 void SteamManager::update()
 {
     SteamAPI_RunCallbacks();
-
 }
 SteamManager::~SteamManager()
 {
@@ -57,11 +56,7 @@ void ManetteHandle::init(std::string _bind_group_name)
 	SteamInput()->ActivateActionSet(m_manetteHandles[0], m_actionSet);
 	m_bind_group_name = _bind_group_name;
 	m_rebind_controller = false;
-	param.triggerMask = SCE_PAD_TRIGGER_EFFECT_TRIGGER_MASK_R2;
-	param.command[SCE_PAD_TRIGGER_EFFECT_PARAM_INDEX_FOR_R2].mode = SCE_PAD_TRIGGER_EFFECT_MODE_WEAPON;
-	param.command[SCE_PAD_TRIGGER_EFFECT_PARAM_INDEX_FOR_R2].commandData.weaponParam.startPosition = 2;
-	param.command[SCE_PAD_TRIGGER_EFFECT_PARAM_INDEX_FOR_R2].commandData.weaponParam.endPosition = 8;
-	param.command[SCE_PAD_TRIGGER_EFFECT_PARAM_INDEX_FOR_R2].commandData.weaponParam.strength = 5;
+	
 }
 
 void ManetteHandle::update()
@@ -150,6 +145,15 @@ void ManetteHandle::update()
 		tmp_action_set_handle = SteamInput()->GetActionSetHandle(analog.first.c_str());
 		SteamInput()->ActivateActionSet(m_manetteHandles[0], tmp_action_set_handle);
 	}
+}
+
+void ManetteHandle::setVibration()
+{
+	param.triggerMask = SCE_PAD_TRIGGER_EFFECT_TRIGGER_MASK_R2;
+	param.command[SCE_PAD_TRIGGER_EFFECT_PARAM_INDEX_FOR_R2].mode = SCE_PAD_TRIGGER_EFFECT_MODE_WEAPON;
+	param.command[SCE_PAD_TRIGGER_EFFECT_PARAM_INDEX_FOR_R2].commandData.weaponParam.startPosition = 2;
+	param.command[SCE_PAD_TRIGGER_EFFECT_PARAM_INDEX_FOR_R2].commandData.weaponParam.endPosition = 8;
+	param.command[SCE_PAD_TRIGGER_EFFECT_PARAM_INDEX_FOR_R2].commandData.weaponParam.strength = 5;
 }
 
 

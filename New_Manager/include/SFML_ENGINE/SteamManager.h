@@ -22,6 +22,8 @@ public:
 	void init(std::string _bind_group_name);
 	void update();
 
+	void setVibration();
+
 	void create_analog_action(std::string _action);
 	void create_button_action(std::string _action);
 
